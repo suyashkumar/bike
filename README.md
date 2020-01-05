@@ -15,7 +15,8 @@ Note: sadly this cannot be done by treating the jack as a 3.5mm microphone input
 - [x] Build initial circuit and microcontroller firmware to capture data, validate that rotations show up properly
 - [ ] Write firmware to capture data from a workout
 - [ ] Display current stats (distance, speed, duration) on a OLED display on device.
-- [ ] Dump the data to an SD card or push it to a cloud server.
+- [ ] Dump the data as CSVs to an SD card?
+- [ ] Push data to a server (maybe on a local network)? Bluetooth serial to an app?
 - [ ] ... more to come. 
 
 ## Hardware

@@ -12,8 +12,7 @@
 #define THRESHOLD 300 
 #define VERIFY_ITER_N 10
 
-void setup()
-{
+void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(A0, INPUT);
   Serial.begin(9600);
@@ -37,8 +36,7 @@ bool switch_is_triggered() {
   return false;
 }
 
-void loop()
-{
+void loop() {
   // TODO: count and timestamp detected unique revolutions.
   if (switch_is_triggered()) { 
     // Turn the LED on if the magnetic reed switch is currently triggered

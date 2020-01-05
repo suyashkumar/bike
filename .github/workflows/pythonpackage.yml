@@ -1,4 +1,4 @@
-name: Python package
+name: Firmware Platformio Build
 
 on: [push, pull_request]
 

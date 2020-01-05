@@ -41,7 +41,7 @@ void loop() {
   if (switch_is_triggered()) { 
     // Turn the LED on if the magnetic reed switch is currently triggered
     digitalWrite(LED_BUILTIN, LOW);
-	Serial.println(1); 
+    Serial.println(1); 
   } else {
     // Turn the LED off if the magnetic reed switch is not triggered
     digitalWrite(LED_BUILTIN, HIGH);

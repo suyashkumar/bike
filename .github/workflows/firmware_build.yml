@@ -1,4 +1,4 @@
-name: Firmware Platformio Build
+name: Firmware Build
 
 on: [push, pull_request]
 

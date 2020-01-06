@@ -3,7 +3,7 @@
   </p>
 </p>
 
-The goal of this project is to capture and save RPM data from my cyclace excercise bike. This data can be used to calculate speed and distance througout the duration of excercise, which provides interesting information about the intensity of the excercise!
+The goal of this project is to capture, save, and display RPM derived data from my cyclace excercise bike. This data can be used to calculate speed and distance througout the duration of excercise, which provides interesting information about the intensity of the excercise!
 
 
 This all started when I noticed that the onboard display received some sort of signal input in a standard 3.5mm mono headphone jack. I enjoy collecting data about my life, particularly excercise, so figured it would be easy enough to build a device to capture this data which is typically "thrown away" by the onboard display after each workout. 
@@ -17,7 +17,7 @@ Note: sadly this cannot be done by treating the jack as a 3.5mm headphone microp
 - [x] Build initial circuit and microcontroller firmware to capture data, validate that rotations show up properly
 - [ ] Write firmware to capture data from a workout
 - [ ] Display current stats (distance, speed, duration) on a OLED display on device.
-- [ ] Dump the data as CSVs to an SD card?
+- [ ] Dump the data as CSVs to a microSD card (easy, standard, and secure)?
 - [ ] Push data to a server (maybe on a local network)? Bluetooth serial to an app?
 - [ ] ... more to come. 
 

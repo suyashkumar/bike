@@ -8,9 +8,9 @@ The goal of this project is to capture, save, and display RPM derived data from 
 
 This all started when I noticed that the onboard display received some sort of signal input in a standard 3.5mm mono headphone jack. I enjoy collecting data about my life, particularly excercise, so figured it would be easy enough to build a device to capture this data which is typically "thrown away" by the onboard display after each workout. 
 
-Note: sadly this cannot be done by treating the jack as a 3.5mm headphone microphone input to a phone/laptop because the pinouts do not line up as needed. Decided to move ahead with microcontrollers since I have plenty handy!
+Note: sadly this cannot be done by treating the jack as a 3.5mm headphone microphone input to a phone/laptop because the pinouts and circuits do not line up as needed. Decided to move ahead with microcontrollers since I have plenty handy!
 
-<img height="300px" src="https://user-images.githubusercontent.com/6299853/71775867-96a28d00-2f3c-11ea-965a-fc4ee426f1dd.gif" />
+<img src="https://user-images.githubusercontent.com/6299853/73600034-e0f93880-44ff-11ea-8a96-a8d9ed46c009.gif" />
 
 ## Current Progress
 - [x] Determine bike sensor type (after some futzing, figured out that it's a [magnetic reed switch](https://en.wikipedia.org/wiki/Reed_switch))

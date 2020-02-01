@@ -44,7 +44,3 @@ void BikeDisplay::PrepareDisplayForPrint(bool is_center_cursor) {
         display.setCursor(0, 0);
     }
 }
-
-
-
-

@@ -21,11 +21,12 @@ void BikeDisplay::Init() {
         exit(1);  // TODO: figure out if this error happens often, and if so, how best to handle
     }
     PrepareDisplayForPrint(/*is_center_cursor=*/true);
-    display.print(F("Bike!"));
+    display.println(F("Bike Time!"));
     display.display();
+    delay(1000);
 }
 
-void BikeDisplay::UpdateRevs(const int& revs) {
+void BikeDisplay::Revolutions(const int& revs) {
     PrepareDisplayForPrint(/*is_center_cursor=*/true);
     display.print(F("Revs: "));
     display.print(revs);
@@ -43,4 +44,20 @@ void BikeDisplay::PrepareDisplayForPrint(bool is_center_cursor) {
     } else {
         display.setCursor(0, 0);
     }
+}
+
+void BikeDisplay::RevsAndDistance(const int& revs, const double& dist) {
+    PrepareDisplayForPrint();
+    display.print(F("Revs: "));
+    display.print(revs);
+
+    display.println();
+
+    display.print(F("Dist: "));
+    char buffer[5];
+    sprintf(buffer, "%4f", dist);
+    display.print(buffer);
+
+    display.display();
+
 }

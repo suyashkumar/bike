@@ -7,7 +7,9 @@ public:
     BikeDisplay();
 
     void Init();
-    void UpdateRevs(const int& revs);
+    void Revolutions(const int& revs);
+    void Distance(const float& dist);
+    void RevsAndDistance(const int& revs, const double& dist);
 
 private:
     void PrepareDisplayForPrint(bool is_center_cursor=false);

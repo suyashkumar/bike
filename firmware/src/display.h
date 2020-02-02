@@ -8,7 +8,6 @@ public:
 
     void Init();
     void Revolutions(const int& revs);
-    void Distance(const float& dist);
     void RevsAndDistance(const int& revs, const double& dist);
 
 private:

@@ -1,6 +1,3 @@
-//
-// Created by Suyash Kumar on 2/1/20.
-//
 #include "Arduino.h"
 #include "bike_computer.h"
 

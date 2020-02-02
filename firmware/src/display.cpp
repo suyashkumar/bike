@@ -46,10 +46,6 @@ void BikeDisplay::PrepareDisplayForPrint(bool is_center_cursor) {
     }
 }
 
-void BikeDisplay::Distance(const float &dist) {
-
-}
-
 void BikeDisplay::RevsAndDistance(const int& revs, const double& dist) {
     PrepareDisplayForPrint();
     display.print(F("Revs: "));

@@ -1,5 +1,7 @@
 #include "Arduino.h"
 #include "bike_computer.h"
+#include "ESP8266WiFi.h"
+#include "WiFiClientSecure.h"
 
 #define THRESHOLD 300
 #define VERIFY_ITER_N 10
@@ -7,18 +9,46 @@
 #define SCREEN_HEIGHT 32 // OLED display height, in pixels
 #define PI 3.14159265
 #define BIKE_RADIUS 0.20 // in m
+#define BUFFER_UPLOAD_PERIOD 1000 // in ms
 
 void BikeComputer::Init() {
     pinMode(A0, INPUT);
     Serial.begin(9600);
     display.Init();
-    delay(500);
+    delay(100);
+
+    InitWiFi();
+    session_id = bike_server_client.NewSession().payload;
+    Serial.println(session_id);
+
+    relative_start_time = millis();
+    buffer_relative_start_time = millis();
 }
 
 void BikeComputer::HandleLoop() {
     if (UpdateTriggerState()) {
         distance = 2 * PI * BIKE_RADIUS * num_revolutions; // in m
         display.RevsAndDistance(num_revolutions, distance);
+    }
+
+    if ((millis() - buffer_relative_start_time) >= BUFFER_UPLOAD_PERIOD) {
+        // Trigger upload of this batch
+        Serial.println("Upload");
+        bike_server_client.AddBatch(session_id, num_revolutions_buffer, buffer_relative_start_time, millis());
+        buffer_relative_start_time = millis();
+        num_revolutions_buffer = 0;
+    }
+
+    delay(10);
+}
+
+void BikeComputer::InitWiFi() {
+    WiFi.mode(WIFI_STA);
+    wifi_multi.addAP("spacenet-rwc", "78f8348fsk");
+
+    while (wifi_multi.run() != WL_CONNECTED) {
+        Serial.println("connecting...");
+        delay(200);
     }
 }
 
@@ -28,6 +58,7 @@ bool BikeComputer::UpdateTriggerState() {
         // New unique revolution
         prev_trigger_state = true;
         num_revolutions += 1;
+        num_revolutions_buffer += 1;
         return true;
 
     } else if (!IsSwitchTriggered() && prev_trigger_state) {

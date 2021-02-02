@@ -40,7 +40,8 @@ class App extends Component {
   }
 
   updateRevs = () => {
-    fetch('http://10.0.0.176:8000/api/distance?session_id=dd023c2a-26b7-4798-a2ea-b71b964534f3',
+    // TODO(suyashkumar): update to dynamically choosing session, etc
+    fetch('http://10.0.0.176:8000/api/distance?session_id=947fc03f-57c9-4637-9de7-dc2febc80fab',
       {method: 'GET', headers:{
           'Content-Type': 'text/plain',
         }})

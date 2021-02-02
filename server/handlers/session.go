@@ -61,7 +61,6 @@ func AddRevolutions(w http.ResponseWriter, r *http.Request, ps httprouter.Params
 		StartMillis: startTime,
 		EndMillis:   endTime,
 	}
-	log.Printf("Info: %+v\n", data)
 
 	if err := ctx.StorageClient.WriteRevolutions(data); err != nil {
 		log.Println(err)
@@ -80,7 +79,6 @@ func TotalDistance(w http.ResponseWriter, r *http.Request, ps httprouter.Params,
 
 	total := 0
 	for _, batch := range data {
-		log.Printf("count: %+v", batch)
 		total += batch.Revolutions
 	}
 

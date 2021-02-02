@@ -11,6 +11,16 @@
 #define BIKE_RADIUS 0.20 // in m
 #define BUFFER_UPLOAD_PERIOD 1000 // in ms
 
+// These variables are set at build time using platformio,
+// specifically using the $SSID and $WIFIPASSPHRASE
+// environment variables.
+#ifndef WIFI_SSID
+#define WIFI_SSID "test"
+#endif
+#ifndef WIFI_PASSPHRASE
+#define WIFI_PASSPHRASE "test"
+#endif
+
 void BikeComputer::Init() {
     pinMode(A0, INPUT);
     Serial.begin(9600);
@@ -44,7 +54,7 @@ void BikeComputer::HandleLoop() {
 
 void BikeComputer::InitWiFi() {
     WiFi.mode(WIFI_STA);
-    wifi_multi.addAP("spacenet-rwc", "78f8348fsk");
+    wifi_multi.addAP(WIFI_SSID, WIFI_PASSPHRASE);
 
     while (wifi_multi.run() != WL_CONNECTED) {
         Serial.println("connecting...");
